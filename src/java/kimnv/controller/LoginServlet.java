@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
 public class LoginServlet extends HttpServlet {
+    private final String SEARCH_PAGE = "search.jsp";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,10 +37,16 @@ public class LoginServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         
         String username = request.getParameter("txtUsername");
-        String password = request.getParameter("txtPassword");
+        int password = Integer.parseInt(request.getParameter("txtPassword"));
+        
+        String url = null;
         
         try {
             UserDAO dao = new UserDAO();
+            boolean result = dao.checkLogin(username, password);
+            if(result){
+                
+            }//end of result
         }finally{
             
             out.close();
