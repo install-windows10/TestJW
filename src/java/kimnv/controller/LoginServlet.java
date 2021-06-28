@@ -45,7 +45,7 @@ public class LoginServlet extends HttpServlet {
             UserDAO dao = new UserDAO();
             boolean result = dao.checkLogin(username, password);
             if(result){
-                
+                url = SEARCH_PAGE;
             }//end of result
         }finally{
             
