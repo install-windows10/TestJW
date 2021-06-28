@@ -7,7 +7,6 @@ package kimnv.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,13 +17,9 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author nguye
  */
-@WebServlet(name = "DispatcherServlet", urlPatterns = {"/DispatcherServlet"})
-public class DispatcherServlet extends HttpServlet {
-    private final String LOGIN_PAGE = "login.jsp";
-    private final String LOGIN_CONTROLLER = "LoginServlet";
-    
-    private final String SEARCH_PAGE="search.jsp";
-    private final String SEARCH_CONTROLLER = "SearchServlet";
+@WebServlet(name = "SearchServlet", urlPatterns = {"/SearchServlet"})
+public class SearchServlet extends HttpServlet {
+    private final String SEARCH_PAGE = "search.jsp";
     
     
     /**
@@ -41,21 +36,12 @@ public class DispatcherServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
-        String url = LOGIN_PAGE;
-        
-        String button = request.getParameter("btAction");
+        String url = SEARCH_PAGE;
         
         try {
             
-            if(button.equals("Login")){
-                url = LOGIN_CONTROLLER;
-            }else if(button.equals("Search")){
-                url = SEARCH_CONTROLLER;
-            }
         }finally{
-            RequestDispatcher rd = request.getRequestDispatcher(url);
-            rd.forward(request, response);
-            out.close();
+            
         }
     }
 

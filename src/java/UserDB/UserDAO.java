@@ -10,5 +10,7 @@ package UserDB;
  * @author nguye
  */
 public class UserDAO {
-    
+    public boolean checkLogin(String username, int password){
+        return false;
+    }
 }
